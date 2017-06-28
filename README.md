@@ -36,7 +36,7 @@ data Crawling, Pretreatment, Processing, Training, Model Visualization -> AUTOMA
 
   ![berkshire](./berkshire_err.png)
   ![berkshire](./berkshire_value.png)
-  ![berkshire](./rnn_tensorboard.png)
+  ![rnn_tensorboard](./rnn_tensorboard.png)
 
 
 

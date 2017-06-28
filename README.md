@@ -34,8 +34,8 @@ data Crawling, Pretreatment, Processing, Training, Model Visualization -> AUTOMA
   - sk_hynix 0.024(RMSE) 56700(Real) 56500(Predictions) <br>
   - berkshire <br>
 
-  ![berkshire](./berkshire_err.png)
-  ![berkshire](./berkshire_value.png)
+  ![berkshire_err](./berkshire_err.png)
+  ![berkshire_value](./berkshire_value.png)
   ![rnn_tensorboard](./rnn_tensorboard.png)
 
 

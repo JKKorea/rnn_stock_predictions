@@ -1,5 +1,4 @@
 # rnn_stock_predictions
-Stock predictions with RNN <br>
 data Crawling, Pretreatment, Processing, Training, Model Visualization -> Automation
 
 # requirments

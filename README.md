@@ -1,5 +1,5 @@
 # rnn_stock_predictions
-data Crawling, Pretreatment, Processing, Training, Model Visualization -> Automation
+data Crawling, Pretreatment, Processing, Training, Model Visualization -> AUTOMATION
 
 # requirments
   - Python 3.5.3
@@ -14,7 +14,7 @@ data Crawling, Pretreatment, Processing, Training, Model Visualization -> Automa
   - python kospi.py
   - tensorboard --logdir=./tensorflowlog
   - tensorboard
-    http://localhost:6006/
+    http://localhost:6006/  <br>
     graphs
 
 # Model

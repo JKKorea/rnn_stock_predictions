@@ -33,9 +33,10 @@ data Crawling, Pretreatment, Processing, Training, Model Visualization -> AUTOMA
   - samsung_electronics 0.022(RMSE) 2258000(Real) 2265000(Predictions)   
   - sk_hynix 0.024(RMSE) 56700(Real) 56500(Predictions) <br>
   - berkshire <br>
-  
+
   ![berkshire](./berkshire_err.png)
   ![berkshire](./berkshire_value.png)
+  ![berkshire](./Rnn_tensorboard.png)
 
 
 

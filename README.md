@@ -31,7 +31,11 @@ data Crawling, Pretreatment, Processing, Training, Model Visualization -> AUTOMA
   - hyundai_motor 0.020(RMSE) 160000(Real) 159000 (Predictions)
   - kospi  0.022(RMSE) 2363.57(Real) 2360.14(Predictions)
   - samsung_electronics 0.022(RMSE) 2258000(Real) 2265000(Predictions)   
-  - sk_hynix 0.024(RMSE) 56700(Real) 56500(Predictions) 
+  - sk_hynix 0.024(RMSE) 56700(Real) 56500(Predictions) <br>
+
+  ![berkshire](./berkshire_err.png)
+  ![berkshire](./berkshire_value.png)
+
 
 
 # Reference

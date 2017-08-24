@@ -1,9 +1,9 @@
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 tf.set_random_seed(777)  # reproducibility
-
 def MinMaxScaler(data):
     numerator = data - np.min(data, 0)
     denominator = np.max(data, 0) - np.min(data, 0)
@@ -21,12 +21,15 @@ iterations = 500
 # Choose stock
 stock = "KRX:005380"
 
+# start time setting
+startTime = time.time()
+
 # data scrolling parts
 from pandas_datareader import data, wb  
 import datetime
 
 start = datetime.datetime(2010, 1, 2)
-end = datetime.datetime(2017, 5, 27)
+end = datetime.datetime(2017, 7, 14)
 df = data.DataReader(  
     stock,        # name
     "google",           # data source
@@ -46,9 +49,9 @@ xy = MinMaxScaler(xy)
 x = xy
 y = xy[:, [-2]]  # Close as label
 
-# Test
-start = datetime.datetime(2017, 5, 28)
-end = datetime.datetime(2017, 6, 7)
+# data for Prediction
+start = datetime.datetime(2017, 7, 18)
+end = datetime.datetime(2017, 7, 26)
 df = data.DataReader(  
     stock,        # name
     "google",           # data source
@@ -62,9 +65,9 @@ test_last_min = np.min(test_last_X, 0)
 test_last_max = np.max(test_last_X, 0)
 test_last_denom = test_last_max - test_last_min
 
-# Real
-start = datetime.datetime(2017, 6, 8)
-end = datetime.datetime(2017, 6, 8)
+# real Prediction data
+start = datetime.datetime(2017, 7, 27)
+end = datetime.datetime(2017, 7, 27)
 df = data.DataReader(  
     stock,        # name
     "google",           # data source
@@ -72,7 +75,7 @@ df = data.DataReader(
     end   # end
 )
 
-real = df.as_matrix()
+real_stock = df.as_matrix()
 
 # build a dataset
 dataX = []
@@ -138,22 +141,32 @@ with tf.Session() as sess:
                     targets: testY, predictions: test_predict})
     print("RMSE: {}".format(rmse))
 
+    # Print train_size, test_size
+    print("train_size : {}".format(train_size))
+    print("test_size : {}".format(test_size))
+
     # Predictions test
     prediction_test = sess.run(Y_pred, feed_dict={X: test_last_X})
-    print("real ", end='')
-    print(real[0][-2])
-    # print(((xy[0][-2])*denom + test_min)[-2])
+    print("real stock price : ", end='')
+    real_value = real_stock[0][-2] 
+    print(real_value)
     
-    print("predictions ", end='')
-    # print(((prediction_test)*denom + test_min)[0][-2])
-    print((prediction_test*test_last_denom + test_last_min)[-1][-2])
+    print("prediction stock price : ", end='')
+    prediction_value = (prediction_test*test_last_denom + test_last_min)[-1][-2]
+    print(prediction_value)
 
+    print("Error rate : ", end='')
+    print(abs(prediction_value - real_value)/prediction_value * 100)
 
+     # end time setting, print time
+    elapsedTime = time.time() - startTime
+    print("it took " + "%.3f"%(elapsedTime) + " s.")
+    
     # Plot losss
     plt.figure(1)
     plt.plot(losslist, color ="green", label ="Error");
     plt.xlabel("Iteration Number")
-    plt.ylabel("Sum of the Squarred Error")
+    plt.ylabel("Sum of the Squared Error")
     plt.legend(loc='upper right', frameon=False)
 
     # Plot predictions

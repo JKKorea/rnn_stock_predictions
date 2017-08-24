@@ -19,7 +19,7 @@ learing_rate = 0.01
 iterations = 500
 
 # Choose stock
-stock = "KRX:000660"
+stock = "NASDAQ:FB"
 
 # start time setting
 startTime = time.time()
@@ -28,7 +28,7 @@ startTime = time.time()
 from pandas_datareader import data, wb  
 import datetime
 
-start = datetime.datetime(2010, 1, 2)
+start = datetime.datetime(2012, 5, 18)
 end = datetime.datetime(2017, 7, 14)
 df = data.DataReader(  
     stock,        # name

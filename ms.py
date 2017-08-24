@@ -19,7 +19,7 @@ learing_rate = 0.01
 iterations = 500
 
 # Choose stock
-stock = "KRX:000660"
+stock = "NASDAQ:MSFT"
 
 # start time setting
 startTime = time.time()

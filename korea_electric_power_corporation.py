@@ -19,7 +19,7 @@ learing_rate = 0.01
 iterations = 500
 
 # Choose stock
-stock = "KRX:000660"
+stock = "KRX:015760"
 
 # start time setting
 startTime = time.time()
@@ -157,7 +157,7 @@ with tf.Session() as sess:
 
     print("Error rate : ", end='')
     print(abs(prediction_value - real_value)/prediction_value * 100)
-
+    
      # end time setting, print time
     elapsedTime = time.time() - startTime
     print("it took " + "%.3f"%(elapsedTime) + " s.")

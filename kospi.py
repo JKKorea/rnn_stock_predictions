@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 tf.set_random_seed(777)  # reproducibility
 
@@ -20,6 +21,9 @@ iterations = 500
 
 # Choose stock
 stock = "KRX:KOSPI"
+
+# start time setting
+startTime = time.time()
 
 # data scrolling parts
 from pandas_datareader import data, wb  
@@ -146,6 +150,10 @@ with tf.Session() as sess:
     print("predictions ", end='')
     print((prediction_test*test_last_denom + test_last_min)[-1][-2])
 
+    # end time setting, print time
+    elapsedTime = time.time() - startTime
+    print("it took " + "%.3f"%(elapsedTime) + " s.")
+    
     # Plot losss
     plt.figure(1)
     plt.plot(losslist, color ="green", label ="Error");
